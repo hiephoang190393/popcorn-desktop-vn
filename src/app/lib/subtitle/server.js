@@ -67,13 +67,14 @@
             }
 
             if (data.srt) {
-                fs.readFile(data.srt, function (err, data) {
-                    if (err) {
-                        win.error('SubtitlesServer: Unable to load SRT file');
-                        return;
-                    }
-                });
-                subtitlePath['srt'] = data.srt;
+              App.Subtitles.Generic.convert({ path: data.srt, language: ''}, (err, info) => {
+                if (err) {
+                    win.error('SubtitlesServer: Unable to load SRT file');
+                    return;
+                }
+
+                subtitlePath['vtt'] = info.vtt;
+              })
             }
 
             if (!httpServer) {

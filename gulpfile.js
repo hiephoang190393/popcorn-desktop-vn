@@ -363,7 +363,7 @@ gulp.task('unzipffmpeg', () => {
       }
 
       const ffmpegurl = 'https://github.com/iteufel/nwjs-ffmpeg-prebuilt/releases/download/' + nwVersion + '/' + nwVersion + '-' + osvar;
-      let ffpath = ffpath = './build/' + pkJson.name + '/' + platform;
+      let ffpath = './build/' + pkJson.name + '/' + platform;
       if (platform.indexOf('linux') !== -1) {
           ffpath = ffpath + '/lib';
       }
